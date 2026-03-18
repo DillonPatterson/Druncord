@@ -8,7 +8,7 @@ export const siteConfig = {
   shortTagline: "An online bar. 18+ only.",
   discordInviteUrl: DISCORD_INVITE_URL,
   siteUrl: SITE_URL,
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image.png",
   navLinks: [
     { href: "/about", label: "About" },
     { href: "/events", label: "Events" },

@@ -4,9 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { JoinButton } from "@/components/JoinButton";
+import { MENU_EVENT } from "@/components/MobileJoinBar";
 import { siteConfig } from "@/content/site";
-
-const MENU_OPEN_EVENT = "druncord-menu-open";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -33,13 +32,6 @@ export function SiteHeader() {
       ? "bg-wood/95 border-b border-amber/20 backdrop-blur"
       : "bg-transparent border-b border-transparent";
 
-  const updateMenuOpen = (nextMenuOpenValue: boolean) => {
-    setMenuOpen(nextMenuOpenValue);
-    window.dispatchEvent(
-      new CustomEvent(MENU_OPEN_EVENT, { detail: nextMenuOpenValue }),
-    );
-  };
-
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-40 transition-all duration-200 ease-out ${headerClasses}`}>
@@ -56,7 +48,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={() => updateMenuOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                   className={`text-sm ${
                     isActive ? "text-offwhite" : "text-offwhite/70 hover:text-offwhite"
                   }`}
@@ -75,7 +67,13 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
             className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-amber/20 text-amber md:hidden"
-            onClick={() => updateMenuOpen(!menuOpen)}
+            onClick={() => {
+              const next = !menuOpen;
+              setMenuOpen(next);
+              window.dispatchEvent(
+                new CustomEvent<boolean>(MENU_EVENT, { detail: next })
+              );
+            }}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
@@ -104,7 +102,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={() => updateMenuOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                   className={`font-display text-4xl ${
                     isActive ? "text-offwhite" : "text-offwhite/70"
                   }`}

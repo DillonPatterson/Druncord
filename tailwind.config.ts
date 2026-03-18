@@ -31,8 +31,8 @@ const config: Config = {
       },
       keyframes: {
         wave: {
-          "0%, 100%": { transform: "scaleY(0.45)", opacity: "0.45" },
-          "50%": { transform: "scaleY(1)", opacity: "1" },
+          "0%, 100%": { height: "20%", opacity: "0.45" },
+          "50%": { height: "100%", opacity: "1" },
         },
         softFade: {
           from: { opacity: "1" },

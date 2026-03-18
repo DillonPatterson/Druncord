@@ -1,5 +1,6 @@
 type SchemaOrgProps = {
-  data: Record<string, unknown> | Array<Record<string, unknown>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: Record<string, any> | Array<Record<string, any>>;
 };
 
 export function SchemaOrg({ data }: SchemaOrgProps) {

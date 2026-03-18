@@ -10,29 +10,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        wood: "#1A1109",
-        "wood-light": "#2A1E10",
-        amber: "#C17A2A",
-        "amber-hover": "#D4882E",
-        offwhite: "#EDE8DF",
-        warmgray: "#6B6157",
-        teal: "#3D7068",
+        bg: "#0a0f0a",
+        warm: "#1a1508",
+        counter: "#1e1a08",
+        amber: "#c8821a",
+        "amber-hover": "#d4912a",
+        nightgreen: "#0d1a0d",
+        text: "#f0e8d0",
+        sub: "rgba(240,232,208,0.4)",
+        dim: "rgba(240,232,208,0.12)",
+        border: "rgba(200,130,26,0.1)",
+        "border-warm": "rgba(200,130,26,0.15)",
       },
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        body: ["Inter", "sans-serif"],
-      },
-      transformOrigin: {
-        bottom: "bottom",
+        display: ["Syne", "sans-serif"],
+        serif: ["Lora", "serif"],
+        mono: ["Syne Mono", "monospace"],
+        body: ["Syne", "sans-serif"],
       },
       animation: {
-        wave: "wave 1.8s ease-in-out infinite",
+        wave: "wave 1.9s ease-in-out infinite",
         "soft-fade": "softFade 240ms ease forwards",
       },
       keyframes: {
         wave: {
-          "0%, 100%": { height: "20%", opacity: "0.45" },
-          "50%": { height: "100%", opacity: "1" },
+          "0%, 100%": { transform: "scaleY(0.12)", opacity: "0.22" },
+          "50%": { transform: "scaleY(1)", opacity: "0.95" },
         },
         softFade: {
           from: { opacity: "1" },
@@ -40,11 +43,7 @@ const config: Config = {
         },
       },
       boxShadow: {
-        amber: "0 12px 36px rgba(193, 122, 42, 0.22)",
-      },
-      backgroundImage: {
-        "warm-glow":
-          "radial-gradient(circle at 50% 35%, rgba(193, 122, 42, 0.12), transparent 55%)",
+        amber: "0 0 40px rgba(200,130,26,0.15)",
       },
     },
   },

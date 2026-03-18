@@ -41,8 +41,8 @@ export function MobileJoinBar() {
   if (hidden || menuOpen) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-amber/30 bg-wood/95 p-4 backdrop-blur md:hidden">
-      <JoinButton source="mobile-bar" fullWidth />
+    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-bg/95 p-4 backdrop-blur md:hidden">
+      <JoinButton source="mobile-bar" size="large" className="w-full justify-center" />
     </div>
   );
 }

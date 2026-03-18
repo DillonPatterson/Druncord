@@ -1,5 +1,4 @@
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
 import { SchemaOrg } from "@/components/SchemaOrg";
 import { extendedFaqItems, faqItems } from "@/content/faq";
@@ -42,11 +41,6 @@ export default function FAQPage() {
         description="Fair. Here are the straight answers."
       />
       <FAQAccordion items={allFaqItems} title="Frequently asked questions." />
-      <FinalCTA
-        title="If the answers were enough, the room is still open."
-        description="You can read all night or just come in and say hello."
-        source="faq-page"
-      />
     </>
   );
 }

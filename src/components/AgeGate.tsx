@@ -95,49 +95,48 @@ export function AgeGate() {
 
   return (
     <div
-      className={`grain fixed inset-0 z-[60] flex items-center justify-center bg-wood px-6 py-10 ${
+      className={`fixed inset-0 z-[60] flex items-center justify-center bg-bg px-6 py-10 ${
         isLeaving ? "animate-soft-fade" : ""
       }`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,122,42,0.16),transparent_36%)]" />
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-label="Age confirmation"
-        className="surface-card relative w-full max-w-[420px] p-8 text-center shadow-amber"
+        className="w-full max-w-[380px] rounded-[4px] border border-border-warm bg-warm p-10 text-center"
       >
         {isDeclined ? (
           <>
-            <h2 className="font-display text-4xl text-offwhite">
+            <h2 className="font-serif text-[22px] italic text-sub">
               Come back when you&apos;re ready.
             </h2>
             <a
               href="about:blank"
-              className="mt-6 inline-flex text-sm text-amber hover:text-amber-hover"
+              className="mt-3 block font-mono text-[11px] text-dim hover:text-sub"
             >
               Leave
             </a>
           </>
         ) : (
           <>
-            <h2 className="font-display text-4xl leading-tight text-offwhite md:text-5xl">
+            <h2 className="font-serif text-[26px] italic text-text">
               This bar is for adults.
             </h2>
-            <p className="mt-4 text-lg text-offwhite/82">Are you 18 or older?</p>
+            <p className="mt-2 mb-8 font-mono text-[12px] text-sub">Are you 18 or older?</p>
             <div className="mt-8 space-y-3">
               <button
                 ref={confirmRef}
                 type="button"
                 onClick={handleConfirm}
-                className="min-h-[3.5rem] w-full rounded-lg bg-amber px-6 font-medium text-wood hover:bg-amber-hover"
+                className="w-full rounded-[3px] bg-amber px-9 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.04em] text-bg transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
               >
                 I&apos;m in
               </button>
               <button
                 type="button"
                 onClick={handleDecline}
-                className="text-sm text-offwhite/75 hover:text-offwhite"
+                className="mt-3 block font-mono text-[11px] text-dim hover:text-sub"
               >
                 Take me out
               </button>

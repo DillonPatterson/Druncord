@@ -25,14 +25,14 @@ export default function JoinPage() {
         title="You're almost in."
         description="A quick look at what the first few minutes usually feel like."
       />
-      <section className="bg-wood-light py-16 md:py-20">
+      <section className="bg-warm py-16 md:py-20">
         <div className="section-shell">
-          <div className="mx-auto max-w-3xl space-y-6 text-lg leading-8 text-offwhite/80">
+          <div className="mx-auto max-w-3xl space-y-6 text-[15px] leading-[1.95] text-sub">
             {joinPageContent.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            <p className="text-base text-warmgray">
-              18+ only. The rules still apply. Read the{" "}
+            <p className="text-[13px] text-sub">
+              Adults only. The rules still apply. Read the{" "}
               <Link href="/rules" className="text-amber hover:text-amber-hover">
                 house rules
               </Link>{" "}

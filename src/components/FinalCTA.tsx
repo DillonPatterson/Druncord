@@ -1,31 +1,17 @@
 import { JoinButton } from "@/components/JoinButton";
-import { homeContent } from "@/content/home";
-
-type FinalCTAProps = {
-  title?: string;
-  description?: string;
-  source?: string;
-};
-
-export function FinalCTA({
-  title = homeContent.finalCta.title,
-  description = homeContent.finalCta.description,
-  source = "final-cta",
-}: FinalCTAProps) {
+export function FinalCTA() {
   return (
-    <section className="bg-wood py-20 text-center md:py-24">
-      <div className="section-shell">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-4xl text-offwhite md:text-5xl">
-            {title}
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-offwhite/78">
-            {description}
-          </p>
-          <div className="mt-8 flex justify-center">
-            <JoinButton source={source} size="large" />
-          </div>
-        </div>
+    <section className="relative overflow-hidden bg-warm py-32 text-center">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        style={{ background: "radial-gradient(ellipse, rgba(200,130,26,0.1), transparent 70%)" }}
+      />
+      <div className="section-shell relative">
+        <p className="mb-10 font-serif text-[32px] italic text-text">
+          First round is on me.
+        </p>
+        <JoinButton source="cta" size="large" />
       </div>
     </section>
   );

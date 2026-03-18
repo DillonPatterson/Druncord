@@ -6,25 +6,22 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="bg-wood-light py-20 md:py-24">
-      <div className="section-shell">
-        <div className="mb-10">
-          <h2 className="font-display text-4xl text-offwhite md:text-5xl">
-            From the regulars.
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {testimonials.slice(0, 4).map((testimonial) => (
-            <article key={testimonial.username} className="surface-card p-6 md:p-8">
-              <blockquote className="text-lg leading-8 text-offwhite/80">
-                &quot;{testimonial.quote}&quot;
-              </blockquote>
-              <p className="mt-5 text-sm uppercase tracking-[0.18em] text-amber/75">
-                {testimonial.username}
-              </p>
-            </article>
-          ))}
-        </div>
+    <section className="bg-warm py-0 pb-24">
+      <div className="section-shell grid grid-cols-1 gap-10 md:grid-cols-2">
+        {testimonials.slice(0, 2).map((t, i) => (
+          <div
+            key={t.username}
+            className="border-l-2 pl-6"
+            style={{ borderColor: i === 0 ? "var(--amber)" : "rgba(200,130,26,0.22)" }}
+          >
+            <blockquote className="mb-3 font-serif text-[17px] italic leading-[1.65] text-text">
+              "{t.quote}"
+            </blockquote>
+            <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-sub">
+              {t.username}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -5,21 +5,21 @@ import { DISCORD_INVITE_URL } from "@/lib/config";
 
 type JoinButtonProps = {
   source: string;
-  className?: string;
   size?: "default" | "large";
-  fullWidth?: boolean;
+  className?: string;
 };
 
 export function JoinButton({
   source,
-  className = "",
   size = "default",
-  fullWidth = false,
+  className = "",
 }: JoinButtonProps) {
-  const sizeClasses =
-    size === "large"
-      ? "min-h-[3.75rem] px-8 text-base"
-      : "min-h-[3.25rem] px-6 text-sm md:text-base";
+  const base =
+    "inline-flex items-center justify-center rounded-[3px] font-mono font-bold tracking-[0.04em] uppercase transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber";
+  const sizes = {
+    default: "text-[12px] px-5 py-2.5",
+    large: "text-[13px] px-9 py-4",
+  };
 
   return (
     <a
@@ -28,13 +28,7 @@ export function JoinButton({
       rel="noreferrer noopener"
       aria-label="Join Druncord on Discord"
       onClick={() => trackJoinClick(source)}
-      className={[
-        "inline-flex items-center justify-center rounded-lg bg-amber font-medium text-wood shadow-amber",
-        "hover:bg-amber-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber",
-        sizeClasses,
-        fullWidth ? "w-full" : "w-auto",
-        className,
-      ].join(" ")}
+      className={`${base} ${sizes[size]} bg-amber text-bg ${className}`}
     >
       Join Druncord
     </a>

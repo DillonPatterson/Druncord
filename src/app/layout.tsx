@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import { AgeGate } from "@/components/AgeGate";
 import { MobileJoinBar } from "@/components/MobileJoinBar";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -7,20 +6,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/content/site";
 import { SITE_URL_OBJECT } from "@/lib/config";
 import "../styles/globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: SITE_URL_OBJECT,
@@ -56,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
-      <body className="bg-wood font-body text-offwhite antialiased">
+    <html lang="en">
+      <body className="bg-bg font-body text-text antialiased">
         <AgeGate />
         <SiteHeader />
         <div className="flex min-h-screen flex-col">

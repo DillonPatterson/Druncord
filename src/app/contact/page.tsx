@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
 import { contactPageContent } from "@/content/pages/contact";
 
@@ -26,18 +25,18 @@ export default function ContactPage() {
   return (
     <>
       <PageHero title="Get in touch." description="Simple and direct." />
-      <section className="bg-wood-light py-16 md:py-20">
+      <section className="bg-warm py-16 md:py-20">
         <div className="section-shell">
           <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <p className="max-w-2xl text-lg leading-8 text-offwhite/80">
+              <p className="max-w-2xl text-[15px] leading-[1.95] text-sub">
                 {contactPageContent.intro}
               </p>
               <div className="mt-6 flex flex-wrap gap-5 text-sm">
-                <Link href="/faq" className="text-amber hover:text-amber-hover">
+                <Link href="/faq" className="font-mono text-[10px] uppercase tracking-[0.12em] text-amber hover:opacity-70">
                   Read the FAQ
                 </Link>
-                <Link href="/rules" className="text-amber hover:text-amber-hover">
+                <Link href="/rules" className="font-mono text-[10px] uppercase tracking-[0.12em] text-amber hover:opacity-70">
                   Read the rules
                 </Link>
               </div>
@@ -45,16 +44,16 @@ export default function ContactPage() {
 
             {submitted ? (
               <div className="surface-card flex flex-col justify-center gap-4 p-6 md:p-8">
-                <p className="text-lg font-medium text-offwhite">
+                <p className="font-display text-3xl font-black tracking-tight text-text">
                   Message received.
                 </p>
-                <p className="text-base leading-7 text-offwhite/75">
+                <p className="text-[15px] leading-[1.85] text-sub">
                   Thanks. We will get back to you when we can. Fastest
                   response is always through the Discord server.
                 </p>
                 <Link
                   href="/join"
-                  className="text-sm font-medium text-amber hover:text-amber-hover"
+                  className="font-mono text-[10px] uppercase tracking-[0.12em] text-amber hover:opacity-70"
                 >
                   Join the server
                 </Link>
@@ -67,7 +66,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm text-offwhite/75"
+                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.12em] text-sub"
                   >
                     Name (optional)
                   </label>
@@ -77,14 +76,14 @@ export default function ContactPage() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full rounded-xl border border-amber/20 bg-wood px-4 py-3 text-offwhite placeholder:text-warmgray focus:border-amber/50 focus:outline-none"
+                    className="w-full border border-border-warm bg-bg px-4 py-3 text-text placeholder:text-sub focus:border-amber/50 focus:outline-none"
                     placeholder="How should we address you?"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-sm text-offwhite/75"
+                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.12em] text-sub"
                   >
                     Email
                   </label>
@@ -95,14 +94,14 @@ export default function ContactPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl border border-amber/20 bg-wood px-4 py-3 text-offwhite placeholder:text-warmgray focus:border-amber/50 focus:outline-none"
+                    className="w-full border border-border-warm bg-bg px-4 py-3 text-text placeholder:text-sub focus:border-amber/50 focus:outline-none"
                     placeholder="you@example.com"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm text-offwhite/75"
+                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.12em] text-sub"
                   >
                     Message
                   </label>
@@ -113,20 +112,20 @@ export default function ContactPage() {
                     rows={6}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full rounded-xl border border-amber/20 bg-wood px-4 py-3 text-offwhite placeholder:text-warmgray focus:border-amber/50 focus:outline-none"
+                    className="w-full border border-border-warm bg-bg px-4 py-3 text-text placeholder:text-sub focus:border-amber/50 focus:outline-none"
                     placeholder="Say what you need to say."
                   />
                 </div>
                 {error ? (
-                  <p className="text-sm text-amber/90">{error}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-amber">{error}</p>
                 ) : null}
-                <p className="text-sm leading-6 text-warmgray">
+                <p className="text-[13px] leading-[1.75] text-sub">
                   Form submissions are not wired to a backend in v1.
                   Staff respond fastest inside the server.
                 </p>
                 <button
                   type="submit"
-                  className="min-h-[3.25rem] rounded-lg bg-amber px-6 font-medium text-wood hover:bg-amber-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
+                  className="inline-flex items-center justify-center rounded-[3px] bg-amber px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-[0.04em] text-bg transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
                 >
                   Send message
                 </button>
@@ -135,11 +134,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <FinalCTA
-        title="Need the faster route?"
-        description="Staff answer quickest inside the server."
-        source="contact-page"
-      />
     </>
   );
 }

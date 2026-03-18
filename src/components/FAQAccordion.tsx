@@ -16,13 +16,13 @@ export function FAQAccordion({
   const [openId, setOpenId] = useState(items[0]?.id ?? "");
 
   return (
-    <section className="bg-wood py-20 md:py-24">
+    <section className="bg-warm py-20 md:py-24">
       <div className="section-shell">
         <div className="max-w-4xl">
-          <h2 className="font-display text-4xl text-offwhite md:text-5xl">
+          <h2 className="font-display text-4xl font-black tracking-tight text-text md:text-5xl">
             {title}
           </h2>
-          <div className="mt-10 divide-y divide-amber/20 rounded-3xl border border-amber/15 bg-wood-light/50">
+          <div className="mt-10 divide-y divide-border rounded-[4px] border border-border bg-bg/30">
             {items.map((item) => {
               const isOpen = item.id === openId;
               const panelId = `${item.id}-panel`;
@@ -36,7 +36,7 @@ export function FAQAccordion({
                     aria-controls={panelId}
                     onClick={() => setOpenId(isOpen ? "" : item.id)}
                   >
-                    <span className="text-lg font-medium text-offwhite">
+                    <span className="text-lg text-text">
                       {item.question}
                     </span>
                     <span
@@ -63,7 +63,7 @@ export function FAQAccordion({
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pt-4 text-base leading-8 text-warmgray">
+                      <p className="pt-4 text-base leading-8 text-sub">
                         {item.answer}
                       </p>
                       {item.links?.length ? (
@@ -72,7 +72,7 @@ export function FAQAccordion({
                             <Link
                               key={link.href}
                               href={link.href}
-                              className="text-sm font-medium text-amber hover:text-amber-hover"
+                              className="font-mono text-[10px] uppercase tracking-[0.12em] text-amber hover:opacity-70"
                             >
                               {link.label}
                             </Link>

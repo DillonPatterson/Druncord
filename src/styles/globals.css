@@ -1,55 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Syne+Mono&family=Lora:ital,wght@1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --wood: #1a1109;
-  --wood-light: #2a1e10;
-  --amber: #c17a2a;
-  --amber-hover: #d4882e;
-  --offwhite: #ede8df;
-  --warmgray: #6b6157;
-  --teal: #3d7068;
-  --font-inter: "Inter", sans-serif;
-  --font-playfair: "Playfair Display", serif;
+  --bg: #0a0f0a;
+  --warm: #1a1508;
+  --counter: #1e1a08;
+  --amber: #c8821a;
+  --amber-hover: #d4912a;
+  --text: #f0e8d0;
+  --sub: rgba(240, 232, 208, 0.4);
+  --dim: rgba(240, 232, 208, 0.12);
+  --border: rgba(200, 130, 26, 0.1);
+  --border-warm: rgba(200, 130, 26, 0.15);
+  --font-syne: "Syne", sans-serif;
+  --font-lora: "Lora", serif;
+  --font-mono: "Syne Mono", monospace;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: var(--wood);
+    background: var(--bg);
   }
 
   body {
     min-height: 100vh;
-    background:
-      radial-gradient(circle at top, rgba(193, 122, 42, 0.1), transparent 34%),
-      var(--wood);
-    color: var(--offwhite);
-    font-family: var(--font-inter);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-syne);
+    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   * {
-    border-color: rgba(193, 122, 42, 0.18);
+    border-color: var(--border);
   }
 
   ::selection {
-    background: rgba(193, 122, 42, 0.3);
-    color: var(--offwhite);
+    background: rgba(200, 130, 26, 0.3);
+    color: var(--text);
   }
 
   a,
-  button,
-  input,
-  textarea {
-    @apply transition-colors duration-200 ease-out;
+  button {
+    transition: opacity 0.15s ease, background 0.15s ease;
   }
 
   a:focus-visible,
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible {
+  button:focus-visible {
     outline: 2px solid var(--amber);
     outline-offset: 3px;
   }
@@ -57,37 +58,82 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-playfair);
+    font-family: var(--font-syne);
   }
 
-  .grain {
+  .font-serif {
+    font-family: var(--font-lora);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-8 md:px-12;
+  }
+
+  .noise {
     position: relative;
     isolation: isolate;
   }
 
-  .grain::before {
+  .noise::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.065;
-    background-size: 220px 220px;
+    opacity: 0.055;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iMjIwIiB2aWV3Qm94PSIwIDAgMjIwIDIyMCI+PGZpbHRlciBpZD0ibiIgeD0iMCIgeT0iMCI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOTIiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIi8+PGZlQ29tcG9uZW50VHJhbnNmZXI+PGZlRnVuY0EgdHlwZT0idGFibGUiIHRhYmxlVmFsdWVzPSIwIDAuODUiLz48L2ZlQ29tcG9uZW50VHJhbnNmZXI+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjIyMCIgaGVpZ2h0PSIyMjAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC43NSIvPjwvc3ZnPg==");
+    background-size: 220px 220px;
   }
 
-  .grain > * {
+  .noise > * {
     position: relative;
     z-index: 1;
   }
 
-  .section-shell {
-    @apply mx-auto w-full max-w-6xl px-6 md:px-10;
+  .amber-glow-bottom {
+    background: linear-gradient(to top, rgba(180, 110, 10, 0.18) 0%, transparent 100%);
   }
 
   .surface-card {
-    @apply rounded-3xl border border-amber/15 bg-wood-light/80 backdrop-blur;
+    background: var(--warm);
+    border: 1px solid var(--border-warm);
+    border-radius: 4px;
   }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.12);
+    opacity: 0.22;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 0.95;
+  }
+}
+
+@keyframes softFade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-wave {
+  animation: wave 1.9s ease-in-out infinite;
+}
+
+.animate-soft-fade {
+  animation: softFade 240ms ease forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,4 +147,21 @@
     animation: none !important;
     transition: none !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 130, 26, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 130, 26, 0.45);
 }

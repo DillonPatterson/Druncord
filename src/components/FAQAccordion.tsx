@@ -63,7 +63,7 @@ export function FAQAccordion({
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pt-4 text-base leading-7 text-warmgray">
+                      <p className="pt-4 text-base leading-8 text-warmgray">
                         {item.answer}
                       </p>
                       {item.links?.length ? (

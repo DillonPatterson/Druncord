@@ -2,11 +2,11 @@ import type { CSSProperties } from "react";
 import { homeContent } from "@/content/home";
 
 const waveform = [
-  { height: "40%", delay: "0ms", duration: "1.5s" },
-  { height: "82%", delay: "120ms", duration: "1.8s" },
-  { height: "56%", delay: "240ms", duration: "1.65s" },
-  { height: "92%", delay: "360ms", duration: "1.95s" },
-  { height: "48%", delay: "180ms", duration: "1.7s" },
+  { delay: "0ms", duration: "1.5s" },
+  { delay: "120ms", duration: "1.8s" },
+  { delay: "240ms", duration: "1.65s" },
+  { delay: "360ms", duration: "1.95s" },
+  { delay: "180ms", duration: "1.7s" },
 ];
 
 export function ActivitySignal() {
@@ -17,10 +17,9 @@ export function ActivitySignal() {
           {waveform.map((bar, index) => (
             <span
               key={index}
-              className="block w-3 animate-wave rounded-full bg-amber/85"
+              className="block h-full w-3 origin-bottom animate-wave rounded-full bg-amber/85"
               style={
                 {
-                  height: bar.height,
                   animationDelay: bar.delay,
                   animationDuration: bar.duration,
                 } as CSSProperties

@@ -22,6 +22,9 @@ const config: Config = {
         display: ["Playfair Display", "serif"],
         body: ["Inter", "sans-serif"],
       },
+      transformOrigin: {
+        bottom: "bottom",
+      },
       animation: {
         wave: "wave 1.8s ease-in-out infinite",
         "soft-fade": "softFade 240ms ease forwards",
